@@ -1,35 +1,82 @@
 # Md2conflu
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/md2conflu`. To experiment with that code, run `bin/console` for an interactive prompt.
+Md2conflu converts Markdown document into Confluence wiki markup.
 
-TODO: Delete this and the text above, and describe your gem
+# Requirements
 
-## Installation
+- Ruby (confirmed in 2.2, 2.4)
+- Rake
 
-Add this line to your application's Gemfile:
+# Installation
 
-```ruby
-gem 'md2conflu'
+```sh
+$ git clone https://github.com/nemupm/md2conflu.git
+$ cd md2conflu
+$ rake install
 ```
 
-And then execute:
+# Usage
 
-    $ bundle
+## Converting markdown into markup
 
-Or install it yourself as:
+You can input markdown file with -f option. 
 
-    $ gem install md2conflu
+```sh
+$ md2conflu -f ~/test.md
+h1. title
 
-## Usage
+* \[a\](http://localhost)
+* {code}abc{code}
 
-TODO: Write usage instructions here
+{code}
+#comment
+{code}
+$
+```
 
-## Development
+Standard input or simply string argument is also available.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```sh
+$ md2conflu << EOS
+# abc
+## edf
+- 1
+- 2
+- 3
+EOS
+h1. abc
+h2. edf
+* 1
+* 2
+* 3
+$
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```sh
+$ md2conflu "
+> # abc
+> ## bcd
+> - 1
+> - 2
+> - 3
+> "
 
-## Contributing
+h1. abc
+h2. bcd
+* 1
+* 2
+* 3
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/md2conflu.
+## Inserting markup into article
+
+1. In edit view, select "insert > markup" and you can get pop-up window.
+2. Select "Confluence Wiki" in pulldown menu and paste markup into the left text box.
+3. Click the insert button.
+
+# Example of aliase
+
+```sh
+# .bashrc
+alias m2c="pbpaste |md2conflu |pbcopy"
+```

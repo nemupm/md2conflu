@@ -6,6 +6,7 @@ Md2conflu converts Markdown document into Confluence wiki markup.
 
 - Ruby (confirmed in 2.2, 2.4)
 - Rake
+- Bundler
 
 # Installation
 

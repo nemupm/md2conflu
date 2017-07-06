@@ -75,7 +75,7 @@ h2. bcd
 2. Select "Confluence Wiki" in pulldown menu and paste markup into the left text box.
 3. Click the insert button.
 
-# Example of aliase
+# Example of alias
 
 ```sh
 # .bashrc

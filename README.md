@@ -81,3 +81,11 @@ h2. bcd
 # .bashrc
 alias m2c="pbpaste |md2conflu |pbcopy"
 ```
+
+# Credit
+
+- joelmeyerhamme/commonmark_parslet(2015) Adapted.
+
+# License
+
+MIT :copyright: nemupm

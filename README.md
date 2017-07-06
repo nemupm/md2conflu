@@ -38,7 +38,7 @@ $
 Standard input or simply string argument is also available.
 
 ```sh
-$ md2conflu << EOS
+$ md2conflu << 'EOS'
 # abc
 ## edf
 - 1

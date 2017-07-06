@@ -141,7 +141,7 @@ module Md2conflu
     end
 
     rule :code_style do
-      match['a-z'].repeat
+      match['[^\n]'].repeat
     end
 
     rule :code_text do

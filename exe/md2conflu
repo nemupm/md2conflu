@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-here = File.dirname(__FILE__)
-$LOAD_PATH << File.expand_path(File.join(here, '..', 'lib'))
+require 'pathname'
+APP_ROOT = File.expand_path(File.join(File.dirname(Pathname.new(__FILE__).realpath),'..'))
+
+$LOAD_PATH << File.join(APP_ROOT, 'lib')
 
 require "md2conflu/command/md2conflu"
